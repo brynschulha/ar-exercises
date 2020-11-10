@@ -10,19 +10,13 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
-# validates :first_name, presence: true
-# validates :last_name, presence: true
-# validates :hourly_rate, numericality: { only_integer: true }, 
-# validates :store, presence: true
-
-# validates :name.length, presence > 3
-# validates :annual_revenue, presence >= 0
+puts "--Please provide a store name---"
+reply = gets.chomp
+newstore = Store.new(name: reply)
+newstore.save
+puts newstore.errors.full_messages     # => Annual revenue is not a number
 puts "--Please provide a employee name---"
 answer = gets.chomp
-# newstore = Store.new(name: answer)
-# newstore.save
-# puts newstore.errors.full_messages
-
-newemployee = Employee.new(first_name: answer, hourly_rate: 201)
+newemployee = @store1.employees.new(first_name: answer, hourly_rate: 100)
 newemployee.save
-puts newemployee.errors.full_messages
+puts newemployee.errors.full_messages  # => Last name can't be blank
